@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="user" appSwipe (swipeLeft)="onSwipeLeft($event)" (swipeRight)="onSwipeRight($event)">
+  <ion-item>
+    <ion-icon name="person-circle" color="medium"></ion-icon>
+    <ion-label class="ion-text-wrap">
+      <h2><ion-text color="danger">{{ user?.name }}</ion-text>        
+      </h2>
+      <h3><ion-note>{{user?.email}}</ion-note></h3>
+    </ion-label>
+  </ion-item>
+  
+  <ion-grid class="ion-padding">
+    <p>Street :  <ion-text color="primary">{{ user?.address?.street }}</ion-text></p>
+    <p>City : <ion-text color="success">{{ user?.address?.city }}</ion-text></p>
+    <p>Zip : <ion-text color="secondary">{{ user?.address?.zipcode }}</ion-text></p>
+    <p>Company : <ion-text color="dark">{{ user?.company?.name }}</ion-text></p>
+  </ion-grid>
+</ion-content>

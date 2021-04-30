@@ -1,25 +1,21 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Inbox
+      <strong> Users List</strong>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-  
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">
-        Inbox
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
+<ion-content [fullscreen]="true">  
   <ion-list>
-    <app-message *ngFor="let message of getMessages()" [message]="message"></app-message>
+    <ng-container *ngFor="let users of getUsers()">
+      <ion-item *ngIf="users" [routerLink]="'/getuserdetails/' + users.id">
+        <ion-label class="ion-text-wrap" padding>
+          <h2>Name : <ion-text color="danger">{{ users?.name }}</ion-text>
+          </h2>
+          <h3>Email : <ion-text color="secondary">{{ users?.email }}</ion-text></h3>
+        </ion-label>
+        </ion-item>
+    </ng-container>    
   </ion-list>
 </ion-content>
