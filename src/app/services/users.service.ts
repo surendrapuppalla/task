@@ -5,10 +5,10 @@ export interface Users {
   name: string;
   username: string;
   email: string;
-  address: any;
-  phone: any;
+  address: object;
+  phone: string;
   website: string;
-  company: any;
+  company: object;
 }
 
 @Injectable({
