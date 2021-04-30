@@ -22,12 +22,6 @@ export class ViewUserPage implements OnInit {
     this.user = this.data.getUserById(parseInt(id));
   }
 
-  getBackButtonText() {
-    const win = window as any;
-    const mode = win && win.Ionic && win.Ionic.mode;
-    return mode === 'ios' ? 'Inbox' : '';
-  }
-
   onSwipeRight($event){
     this.navCtrl.navigateBack(['/home']);
   }
