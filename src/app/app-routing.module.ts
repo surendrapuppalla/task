@@ -15,6 +15,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'swiper-gesture',
+    loadChildren: () => import('./swiper-gesture/swiper-gesture.module').then( m => m.SwiperGesturePageModule)
+  },
 ];
 
 @NgModule({

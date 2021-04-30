@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>swiper-gesture</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12">
+        <ion-card *ngFor="let users of usersList"  [routerLink]="'/getuserdetails/' + users.id">
+          <ion-img src="./assets/svg/profile.svg" class="center" ion-padding></ion-img> 
+          <ion-label ion-padding>
+            <h2>Name : <ion-text color="primary">{{ users?.name }}</ion-text>
+            </h2>
+            <h3>Email : <ion-text color="secondary">{{ users?.email }}</ion-text></h3>
+          </ion-label>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-content>
