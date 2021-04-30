@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { UsersService, Users } from '../services/users.service';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-view-user',
@@ -9,17 +9,23 @@ import { UsersService, Users } from '../services/users.service';
   styleUrls: ['./view-user.page.scss'],
 })
 export class ViewUserPage implements OnInit {
-  public user: Users;
-
+  public user: any;
+  public id: any;
   constructor(
-    private data: UsersService,
+    private usersService: UsersService,
     private activatedRoute: ActivatedRoute,
     private navCtrl: NavController
   ) { }
 
   ngOnInit() {
-    const id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.user = this.data.getUserById(parseInt(id));
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.getUserById();
+    }
+
+  getUserById(){
+    this.usersService.getUserById(this.id).subscribe(res=>{
+      this.user = res;
+    })
   }
 
   onSwipeRight($event){

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UsersService, Users } from '../services/users.service';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +7,17 @@ import { UsersService, Users } from '../services/users.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private data: UsersService) {}
+  usersList: any;
+  constructor(public usersService: UsersService) {}
 
-  getUsers(): Users[] {
-    return this.data.getUsers();
+  ionViewWillEnter(){
+    this.getUsers();
+  }
+
+  getUsers() {
+    this.usersService.getUsers().subscribe(res=>{
+      this.usersList = res;
+    })
   }
 
 }

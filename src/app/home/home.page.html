@@ -8,7 +8,7 @@
 
 <ion-content [fullscreen]="true">  
   <ion-list>
-    <ng-container *ngFor="let users of getUsers()">
+    <ng-container *ngFor="let users of usersList">
       <ion-item *ngIf="users" [routerLink]="'/getuserdetails/' + users.id">
         <ion-label class="ion-text-wrap" padding>
           <h2>Name : <ion-text color="danger">{{ users?.name }}</ion-text>
