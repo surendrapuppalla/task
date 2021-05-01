@@ -1,8 +1,6 @@
 import { Component, OnInit, ElementRef, QueryList, ViewChildren, AfterViewInit } from "@angular/core";
 import { IonCard } from "@ionic/angular";
 import { GestureServiceService } from "../services/gesture-service.service";
-import { UsersService } from "../services/users.service";
-
 @Component({
   selector: 'app-swiper-gesture',
   templateUrl: './swiper-gesture.page.html',
@@ -243,7 +241,7 @@ export class SwiperGesturePage implements AfterViewInit  {
     ];
 
   @ViewChildren(IonCard, { read: ElementRef }) users: QueryList<ElementRef>;
-  constructor(private GestureService: GestureServiceService, private usersService: UsersService) { }
+  constructor(private GestureService: GestureServiceService) { }
 
   ngAfterViewInit() {   
     const cardArray = this.users.toArray(); 
