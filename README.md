@@ -1,5 +1,7 @@
 install nodemodules after cloning
 
+for unit test use command ng test
+
 # npm install
 
 ![progress](https://github.com/surendrapuppalla/task/blob/main/src/assets/taskimages/image1.png)
