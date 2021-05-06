@@ -1,6 +1,6 @@
 install nodemodules after cloning
 
-for unit test use command ng test
+for unittesting use command ng test
 
 # npm install
 
