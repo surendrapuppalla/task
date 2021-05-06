@@ -9,6 +9,7 @@ import { UsersService } from '../services/users.service';
 })
 export class HomePage {
   usersList: any;
+  text: string = "Users List";
   constructor(public usersService: UsersService, public navCtrl: NavController) {}
 
   ionViewWillEnter(){

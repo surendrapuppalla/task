@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { ViewUserPageRoutingModule } from './view-user-routing.module';
 
 import { ViewUserPage } from './view-user.page';
+import { UsersService } from '../services/users.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ViewUserPage', () => {
   let component: ViewUserPage;
@@ -12,7 +14,8 @@ describe('ViewUserPage', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ViewUserPage ],
-      imports: [IonicModule.forRoot(), ViewUserPageRoutingModule, RouterModule.forRoot([])]
+      providers:[UsersService],
+      imports: [IonicModule.forRoot(), HttpClientTestingModule, ViewUserPageRoutingModule, RouterModule.forRoot([])]
     }).compileComponents();
 
     fixture = TestBed.createComponent(ViewUserPage);
@@ -23,4 +26,11 @@ describe('ViewUserPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call getUserById() ngOnInit method', () => {
+    spyOn(component,'getUserById').and.callThrough();
+        component.ngOnInit();
+        expect(component.getUserById).toHaveBeenCalled();
+  });
+
 });
